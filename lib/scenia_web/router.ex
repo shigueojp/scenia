@@ -10,6 +10,7 @@ defmodule SceniaWeb.Router do
 
     resources "/users", UserController, except: [:new, :edit,:delete]
     resources "/module", ModuleController, except: [:new, :edit]
+    resources "/sensors-information", SensorsController, except: [:new, :edit]
 
     post "/users/login", UserController, :login
   end
