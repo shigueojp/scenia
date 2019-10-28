@@ -203,4 +203,100 @@ defmodule Scenia.Sensor do
   def change_module(%Module{} = module) do
     Module.changeset(module, %{})
   end
+
+  alias Scenia.Sensor.SensorInformation
+
+  @doc """
+  Returns the list of sensor_informations.
+
+  ## Examples
+
+      iex> list_sensor_informations()
+      [%SensorInformation{}, ...]
+
+  """
+  def list_sensor_informations do
+    Repo.all(SensorInformation)
+  end
+
+  @doc """
+  Gets a single sensor_information.
+
+  Raises `Ecto.NoResultsError` if the Sensor information does not exist.
+
+  ## Examples
+
+      iex> get_sensor_information!(123)
+      %SensorInformation{}
+
+      iex> get_sensor_information!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_sensor_information!(id), do: Repo.get!(SensorInformation, id)
+
+  @doc """
+  Creates a sensor_information.
+
+  ## Examples
+
+      iex> create_sensor_information(%{field: value})
+      {:ok, %SensorInformation{}}
+
+      iex> create_sensor_information(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_sensor_information(attrs \\ %{}) do
+    %SensorInformation{}
+    |> SensorInformation.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a sensor_information.
+
+  ## Examples
+
+      iex> update_sensor_information(sensor_information, %{field: new_value})
+      {:ok, %SensorInformation{}}
+
+      iex> update_sensor_information(sensor_information, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_sensor_information(%SensorInformation{} = sensor_information, attrs) do
+    sensor_information
+    |> SensorInformation.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a SensorInformation.
+
+  ## Examples
+
+      iex> delete_sensor_information(sensor_information)
+      {:ok, %SensorInformation{}}
+
+      iex> delete_sensor_information(sensor_information)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_sensor_information(%SensorInformation{} = sensor_information) do
+    Repo.delete(sensor_information)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking sensor_information changes.
+
+  ## Examples
+
+      iex> change_sensor_information(sensor_information)
+      %Ecto.Changeset{source: %SensorInformation{}}
+
+  """
+  def change_sensor_information(%SensorInformation{} = sensor_information) do
+    SensorInformation.changeset(sensor_information, %{})
+  end
 end
