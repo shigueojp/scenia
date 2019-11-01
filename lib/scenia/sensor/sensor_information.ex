@@ -11,7 +11,7 @@ defmodule Scenia.Sensor.SensorInformation do
     field :freq1, :float
     field :freq2, :float
     field :freq3, :float
-    field :module_id, :id
+    field :module_serial, :id
 
     timestamps()
   end

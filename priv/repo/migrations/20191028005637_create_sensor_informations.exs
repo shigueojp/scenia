@@ -11,11 +11,11 @@ defmodule Scenia.Repo.Migrations.CreateSensorInformations do
       add :freq3, :float
       add :Irms, :float
       add :Vrms, :float
-      add :module_id, references(:module, on_delete: :nothing)
+      add :module_serial, references(:module, on_delete: :nothing)
 
       timestamps()
     end
 
-    create index(:sensor_informations, [:module_id])
+    create index(:sensor_informations, [:module_serial])
   end
 end
