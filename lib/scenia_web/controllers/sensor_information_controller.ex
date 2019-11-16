@@ -8,7 +8,7 @@ defmodule SceniaWeb.SensorInformationController do
 
   def index(conn, _params) do
     sensor_informations = Sensor.list_sensor_informations()
-    render(conn, "index.json", sensor_informations: sensor_informations)
+    render(conn, "show.json", sensor_information: sensor_informations)
   end
 
   def create(conn, %{"sensor_information" => sensor_information_params}) do
