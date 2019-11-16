@@ -1,0 +1,36 @@
+version: '3'
+
+networks:
+  scenianet: {}
+
+services:
+  database:
+    dns:
+    - 8.8.8.8
+    - 9.9.9.9
+    ports:
+    - "7777:5432"
+    networks:
+    - scenianet
+    image: postgres:latest
+
+  http:
+    dns:
+    - 8.8.8.8
+    - 9.9.9.9
+    depends_on:
+    - database
+    networks:
+    - scenianet
+    volumes:
+    - .:/srv/app
+    environment:
+      MIX_ENV: dev
+    build:
+      args:
+        MIX_ENV: dev
+      context: '.'
+      dockerfile: Dockerfile
+    ports:
+    - "8000:4000"
+    command: sh -c "mix deps.get && mix ecto.setup && mix phx.server"

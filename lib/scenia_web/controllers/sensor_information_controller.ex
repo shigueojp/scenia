@@ -21,7 +21,7 @@ defmodule SceniaWeb.SensorInformationController do
   end
 
   def show(conn, %{"id" => id}) do
-    sensor_information = Sensor.get_sensor_information!(id)
+    sensor_information = Sensor.get_sensor_information!(:last)
     render(conn, "show.json", sensor_information: sensor_information)
   end
 

@@ -233,7 +233,7 @@ defmodule Scenia.Sensor do
       ** (Ecto.NoResultsError)
 
   """
-  def get_sensor_information!(id), do: Repo.get!(SensorInformation, id)
+  def get_sensor_information!(:last), do: Ecto.Query.from(d in SensorInformation, limit: 1, order_by: [desc: d.sent_at]) |> Repo.one
 
   @doc """
   Creates a sensor_information.
