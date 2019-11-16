@@ -1,0 +1,64 @@
+Coloca a base da url como variavel de ambiente ou algo assim até definirmos qual vai ser a url
+
+GET     /api/users         :index - LISTA DE USUARIOS
+GET     /api/users/:id     :show - RETORNA O USER DE ID :id
+POST    /api/users         :create - Cria um usuario
+{
+    "user": {
+        "email": "aaa@aaa.aaa",
+        "name": "aaa",
+        "password": "p455w0rd",
+        "username": "aaauser"
+    }
+}
+PATCH   /api/users/:id     :update - atualiza um usuario
+PUT     /api/users/:id     :update - atualiza um usuario
+{
+    "user": {
+        "email": "aaa@aaa.aaa",
+        "name": "aaa",
+        "password": "p455w0rd",
+        "username": "aaauser"
+    }
+}
+
+
+GET     /api/module      :index
+GET     /api/module/:id  :show
+POST    /api/module      :create
+{
+    "module":{
+        "serial": "asafedfasfgdfghj3574546",
+        "username": "aaauser"
+    }
+}
+PATCH   /api/module/:id
+PUT     /api/module/:id  :update
+{
+    "module":{
+        "serial": "asafedfasfgdfghj3574546",
+        "username": "aaauser"
+    }
+}
+DELETE  /api/module/:id  :delete
+
+POST    /api/sensor_informations     :create
+{
+    "sensor_information":{
+        "A1": 12.256,
+        "A2": 12.22356,
+        "A3": 12.2514,
+        "freq1": 12.256,
+        "freq2": 12.22356,
+        "freq3": 12.2514,
+        "module_serial": "aasdagfsdfs52166",
+        "Irms": 123
+        "Vrms": 124
+    }
+}
+
+POST    /api/users/login     :login
+{
+    "username":"aaa"
+    "password": "aaa123456"
+}

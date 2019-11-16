@@ -216,7 +216,7 @@ defmodule Scenia.Sensor do
 
   """
   def list_sensor_informations do
-    Repo.all(SensorInformation)
+    last_record = Ecto.Query.from(d in SensorInformation, limit: 1, order_by: [desc: d.sent_at]) |> Repo.one
   end
 
   @doc """
