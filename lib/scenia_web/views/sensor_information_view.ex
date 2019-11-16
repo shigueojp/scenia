@@ -21,8 +21,7 @@ defmodule SceniaWeb.SensorInformationView do
       # freq3: sensor_information.freq3,
       # Irms: sensor_information."Irms",
       # Vrms: sensor_information."Vrms"
-      value: sensor_information.value,
-      sent_at: sensor_information.sent_at
+      value: sensor_information.value
     }
   end
 end
