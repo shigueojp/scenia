@@ -40,5 +40,25 @@ defmodule SceniaWeb.Endpoint do
     key: "_scenia_key",
     signing_salt: "upxnJshg"
 
+  plug CORSPlug,
+  origin: "*",
+  send_preflight_response?: true,
+  headers: [
+    "Authorization",
+    "Content-Type",
+    "Accept",
+    "Origin",
+    "User-Agent",
+    "DNT",
+    "Cache-Control",
+    "X-Mx-ReqToken",
+    "Keep-Alive",
+    "X-Requested-With",
+    "If-Modified-Since",
+    "X-CSRF-Token",
+    "X-Auth-Id",
+    "X-Auth-Token"
+  ]
+
   plug SceniaWeb.Router
 end
