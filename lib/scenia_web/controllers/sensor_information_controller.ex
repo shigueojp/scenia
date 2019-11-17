@@ -23,7 +23,7 @@ defmodule SceniaWeb.SensorInformationController do
   def show(conn, %{"id" => id}) do
     sensor_information = Sensor.get_sensor_information!(:last)
     sensor_information_map = Map.from_struct(sensor_information)
-    |> Map.put(:send_at, Timex.now() |> Timex.shift(hours: -3)))
+    |> Map.put(:send_at, Timex.now() |> Timex.shift(hours: -3))
     json(conn, sensor_information_map)
   end
 
