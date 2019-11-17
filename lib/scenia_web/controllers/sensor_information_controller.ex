@@ -1,6 +1,6 @@
 defmodule SceniaWeb.SensorInformationController do
   use SceniaWeb, :controller
-
+  require Logger
   alias Scenia.Sensor
   alias Scenia.Sensor.SensorInformation
 
@@ -24,6 +24,7 @@ defmodule SceniaWeb.SensorInformationController do
     sensor_information = Sensor.get_sensor_information!(:last)
     sensor_information_map = Map.from_struct(sensor_information)
     |> Map.put(:send_at, Timex.now() |> Timex.shift(hours: -3))
+    |> Map.delete(:__meta__)
     json(conn, sensor_information_map)
   end
 
