@@ -216,7 +216,7 @@ defmodule Scenia.Sensor do
 
   """
   def list_sensor_informations do
-    last_record = Ecto.Query.from(d in SensorInformation, limit: 1, order_by: [desc: d.sent_at]) |> Repo.one
+    last_record = Ecto.Query.from(d in SensorInformation, limit: 1, order_by: [desc: d.id]) |> Repo.one
   end
 
   @doc """
@@ -233,7 +233,7 @@ defmodule Scenia.Sensor do
       ** (Ecto.NoResultsError)
 
   """
-  def get_sensor_information!(:last), do: Ecto.Query.from(d in SensorInformation, limit: 1, order_by: [desc: d.sent_at]) |> Repo.one
+  def get_sensor_information!(:last), do: Ecto.Query.from(d in SensorInformation, limit: 1, order_by: [desc: d.id]) |> Repo.one
 
   @doc """
   Creates a sensor_information.
