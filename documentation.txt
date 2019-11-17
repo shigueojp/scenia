@@ -45,15 +45,7 @@ DELETE  /api/module/:id  :delete
 POST    /api/sensor_informations     :create
 {
     "sensor_information":{
-        "A1": 12.256,
-        "A2": 12.22356,
-        "A3": 12.2514,
-        "freq1": 12.256,
-        "freq2": 12.22356,
-        "freq3": 12.2514,
-        "module_serial": "aasdagfsdfs52166",
-        "Irms": 123
-        "Vrms": 124
+        "value": 12.256
     }
 }
 
