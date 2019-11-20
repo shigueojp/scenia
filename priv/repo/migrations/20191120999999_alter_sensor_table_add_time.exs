@@ -4,8 +4,6 @@ defmodule Scenia.Repo.Migrations.CreateSensorInformations do
   def change do
     alter table(:sensor_informations) do
       add :send_at, :utc_datetime
-
-      timestamps()
     end
   end
 end
