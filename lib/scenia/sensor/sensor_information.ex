@@ -13,7 +13,7 @@ defmodule Scenia.Sensor.SensorInformation do
     # field :freq3, :float
     # field :module_serial, :id
     field :value, :float
-    field :send_at, :datetime
+    field :send_at, :utc_datetime
 
     timestamps()
   end
