@@ -12,7 +12,7 @@ defmodule SceniaWeb.SensorInformationController do
   end
 
   def create(conn, %{"sensor_information" => sensor_information_params}) do
-    sensor_information = Map.put(:send_at, Timex.now() |> Timex.shift(hours: -3))
+    sensor_information_params = Map.put_new(sensor_information_params, "send_at", Timex.now() |> Timex.shift(hours: -3))
     with {:ok, %SensorInformation{} = sensor_information} <- Sensor.create_sensor_information(sensor_information_params) do
       conn
       |> put_status(:created)
